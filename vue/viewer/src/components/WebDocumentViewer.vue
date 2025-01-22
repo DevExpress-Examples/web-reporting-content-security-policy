@@ -13,7 +13,7 @@
       const reportUrl = ko.observable("TestReport");
       const viewerRef = this.$refs.viewer;
       const requestOptions = {
-        host: " https://localhost:5001/",
+        host: " http://localhost:5000/",
         invokeAction: "DXXRDV"
       };
       const viewer = new DxReportViewer(viewerRef, {

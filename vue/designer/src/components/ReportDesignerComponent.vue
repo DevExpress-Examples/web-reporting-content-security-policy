@@ -12,7 +12,7 @@ mounted() {
     var designerOptions = {
         reportUrl: ko.observable("TestReport"),
         requestOptions: {
-        host: "https://localhost:5001/",
+        host: "http://localhost:5000/",
         getDesignerModelAction: "DXXRD/GetDesignerModel"
         }
     };
