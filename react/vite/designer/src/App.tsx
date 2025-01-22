@@ -13,7 +13,7 @@ function App() {
 
   return (
     <ReportDesigner reportUrl="TestReport">
-        <RequestOptions host="https://localhost:5001/" getDesignerModelAction="DXXRD/GetDesignerModel" />
+        <RequestOptions host="http://localhost:5000/" getDesignerModelAction="DXXRD/GetDesignerModel" />
     </ReportDesigner>       
   )
 }
