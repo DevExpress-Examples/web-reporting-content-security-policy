@@ -21,6 +21,6 @@ import { DxReportViewerModule } from 'devexpress-reporting-angular';
 export class AppComponent {
 	title = 'DXReportViewerSample';
 	reportUrl: string = 'TestReport';
-	hostUrl: string = 'https://localhost:5001/';
+	hostUrl: string = 'http://localhost:5000/';
 	invokeAction: string = '/DXXRDV';
 }
