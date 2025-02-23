@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "knockout": ["./src/knockout_global.js"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
