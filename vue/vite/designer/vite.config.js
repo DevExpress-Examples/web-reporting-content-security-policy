@@ -12,8 +12,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      "knockout": "./src/knockout_global.js"
-    },
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+      },
   },
+  html: {
+    // For demonstration purposes only.
+    // Generate a random number, unique for each HTTP request.
+    cspNonce: 'random_nonce_value'
+  }
 })

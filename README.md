@@ -52,7 +52,6 @@ npm start
 
 **Designer:**
 
-
 - [index.html](/angular/designer/src/index.html)
 - [app.config.ts](/angular/designer/src/app/app.config.ts)
 - [angular.json](/angular/designer/angular.json)
@@ -61,15 +60,109 @@ npm start
 
 - [Content Security Policy in Angular Apps](https://docs.devexpress.com/XtraReports/404552/web-reporting/angular-reporting/content-security-policy)
 
+## Vue
+
+### Vite
+
+The *vite* folders contains Vue applications created with [Vite](https://vite.dev/guide/).
+
+For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)
+](https://vite.dev/guide/features#content-security-policy-csp). 
+
+The following meta tag shows the minimum required CSP for our reporting controls:  
+
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+img-src data: https: http:;
+script-src 'self';
+style-src 'self' 'nonce-random_nonce_value';
+connect-src 'self' http://localhost:5000 ws:;
+worker-src 'self' blob:;
+frame-src 'self' blob:;" />
+```
+
+> [!IMPORTANT]
+> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
+
 #### Run the Project
+
+Run the server application. To do this, run the following command from the *ServerApp* folder:
+
+```cmd
+dotnet run
+```
+
+To run the client application, run the following commands:
+
+```cmd
+npm install
+npm run dev
+```
 
 #### Files to Review
 
+**Viewer:**
+
+- [index.html](/vue/vite/viewer/index.html)
+- [vite.config.js](/vue/vite/viewer/vite.config.js)
+
+**Designer:**
+
+- [index.html](/vue/vite/designer/index.html)
+- [vite.config.js](/vue/vite/designer/vite.config.js)
+
+### Vue CLI
+
+The *vue-cli* folders contains Vue applications created with [Vue CLI](https://cli.vuejs.org/).
+
+The following meta tag shows the minimum required CSP for our reporting controls:  
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+img-src data: https: http:;
+script-src 'self';
+style-src 'self' 'unsafe-inline';
+connect-src 'self' http://localhost:5000 ws:;
+worker-src 'self' blob:;
+frame-src 'self' blob:;" />
+```
+
+#### Run the Project
+
+Run the server application. To do this, run the following command from the *ServerApp* folder:
+
+```cmd
+dotnet run
+```
+
+To run the client application, run the following commands:
+
+```cmd
+npm install
+npm run serve
+```
+
+#### Files to Review
+
+**Viewer:**
+
+- [index.html](/vue/vue-cli/viewer/public/index.html)
+- [vue.config.js](/vue/vue-cli/viewer/vue.config.js)
+
+**Designer:**
+
+- [index.html](/vue/vue-cli/viewer/public/index.html)
+- [vue.config.js](/vue/vue-cli/viewer/vue.config.js)
+
+### Documentation
+
+- [Content Security Policy in Vue Apps](https://docs.devexpress.com/XtraReports/404558/web-reporting/vue-reporting/content-security-policy)
+
 ## More Examples
 
-- link
-- link
-- ...
+- [Reporting for ASP.NET Core - Content Security Policy (CSP)](https://github.com/DevExpress-Examples/reporting-asp-net-core-content-security-policy)
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
