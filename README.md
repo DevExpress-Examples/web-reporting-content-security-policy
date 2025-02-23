@@ -60,14 +60,92 @@ npm start
 
 - [Content Security Policy in Angular Apps](https://docs.devexpress.com/XtraReports/404552/web-reporting/angular-reporting/content-security-policy)
 
+
+## React
+
+### Vite
+
+The *vite* folder contains Vue applications created with [Vite](https://vite.dev/guide/).
+
+For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
+
+The following meta tag shows the minimum required CSP for our reporting controls:  
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+img-src data: https: http:;
+script-src 'self';
+style-src 'self' 'nonce-random_nonce_value';
+connect-src 'self' http://localhost:5000;
+worker-src 'self' blob:;
+frame-src 'self' blob:;" />
+```
+
+> [!IMPORTANT]
+> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
+
+#### Run the Project
+
+Run the server application. To do this, run the following command from the *ServerApp* folder:
+
+```cmd
+dotnet run
+```
+
+To run the client application, run the following commands:
+
+```cmd
+npm install
+npm run dev
+```
+
+#### Files to Review
+
+**Viewer:**
+
+- [index.html](/react/vite/viewer/index.html)
+- [vite.config.js](/react/vite/viewer/vite.config.js)
+
+**Designer:**
+
+- [index.html](/react/vite/designer/index.html)
+- [vite.config.js](/react/vite/designer/vite.config.js)
+
+### Next.js
+
+The *nextjs* folder contains Vue applications created with [Next.js](https://nextjs.org/).
+
+For more information on CSP in Next.js apps, refer to the following article: [Content Security Policy (CSP)](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy). 
+
+#### Run the Project
+
+Run the server application. To do this, run the following command from the *ServerApp* folder:
+
+```cmd
+dotnet run
+```
+
+To run the client application, run the following commands:
+
+```cmd
+npm install
+npm run dev
+```
+
+#### Files to Review
+
+**Viewer:**
+
+**Designer:**
+
+
 ## Vue
 
 ### Vite
 
-The *vite* folders contains Vue applications created with [Vite](https://vite.dev/guide/).
+The *vite* folder contains Vue applications created with [Vite](https://vite.dev/guide/).
 
-For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)
-](https://vite.dev/guide/features#content-security-policy-csp). 
+For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
 The following meta tag shows the minimum required CSP for our reporting controls:  
 
@@ -77,7 +155,7 @@ The following meta tag shows the minimum required CSP for our reporting controls
 img-src data: https: http:;
 script-src 'self';
 style-src 'self' 'nonce-random_nonce_value';
-connect-src 'self' http://localhost:5000 ws:;
+connect-src 'self' http://localhost:5000;
 worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
@@ -114,7 +192,7 @@ npm run dev
 
 ### Vue CLI
 
-The *vue-cli* folders contains Vue applications created with [Vue CLI](https://cli.vuejs.org/).
+The *vue-cli* folder contains Vue applications created with [Vue CLI](https://cli.vuejs.org/).
 
 The following meta tag shows the minimum required CSP for our reporting controls:  
 
