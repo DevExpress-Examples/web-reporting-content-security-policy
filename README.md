@@ -8,7 +8,7 @@ This repository contains sample Angular, React and Vue projects with integrated 
 
 ## Angular 
 
-The Native Report Viewer and Report Designer are integrated to an Angular project created with Angular CLI.
+The Report Designer and Native Report Viewer are integrated to an Angular project created with [Angular CLI](https://angular.dev/tools/cli).
 For more information on CSP in Angular framework, refer to the following documentation article: [Content Security Policy](https://angular.dev/best-practices/security#content-security-policy).
 
 The following meta tag shows the minimum required CSP for our reporting controls:  
@@ -62,10 +62,7 @@ npm start
 
 ## React
 
-### Vite
-
-The *vite* folder contains Vue applications created with [Vite](https://vite.dev/guide/).
-
+The Report Designer and Native Report Viewer are integrated to a React project created with [Vite](https://vite.dev/guide/).
 For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
 The following meta tag shows the minimum required CSP for our reporting controls:  
@@ -83,7 +80,7 @@ frame-src 'self' blob:;" />
 > [!IMPORTANT]
 > We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
-#### Run the Project
+### Run the Project
 
 Run the server application. To do this, run the following command from the *ServerApp* folder:
 
@@ -98,56 +95,24 @@ npm install
 npm run dev
 ```
 
-#### Files to Review
+### Files to Review
 
 **Viewer:**
 
-- [index.html](/react/vite/viewer/index.html)
-- [vite.config.js](/react/vite/viewer/vite.config.js)
+- [index.html](/react/viewer/index.html)
+- [vite.config.ts](/react/viewer/vite.config.ts)
 
 **Designer:**
 
-- [index.html](/react/vite/designer/index.html)
-- [vite.config.js](/react/vite/designer/vite.config.js)
-
-### Next.js
-
-The *nextjs* folder contains Vue applications created with [Next.js](https://nextjs.org/).
-
-For more information on CSP in Next.js apps, refer to the following article: [Content Security Policy (CSP)](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy). 
-
-#### Run the Project
-
-Run the server application. To do this, run the following command from the *ServerApp* folder:
-
-```cmd
-dotnet run
-```
-
-To run the client application, run the following commands:
-
-```cmd
-npm install
-npm run dev
-```
-
-#### Files to Review
-
-**Viewer:**
-
-**Designer:**
-
+- [index.html](/react/designer/index.html)
+- [vite.config.ts](/react/designer/vite.config.ts)
 
 ## Vue
 
-### Vite
-
-The *vite* folder contains Vue applications created with [Vite](https://vite.dev/guide/).
-
+The Wen Document Viewer and Report Designer are integrated to a Vue project created with [Vite](https://vite.dev/guide/).
 For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
 The following meta tag shows the minimum required CSP for our reporting controls:  
-
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -162,7 +127,7 @@ frame-src 'self' blob:;" />
 > [!IMPORTANT]
 > We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
-#### Run the Project
+### Run the Project
 
 Run the server application. To do this, run the following command from the *ServerApp* folder:
 
@@ -177,60 +142,17 @@ npm install
 npm run dev
 ```
 
-#### Files to Review
+### Files to Review
 
 **Viewer:**
 
-- [index.html](/vue/vite/viewer/index.html)
-- [vite.config.js](/vue/vite/viewer/vite.config.js)
+- [index.html](/vue/viewer/index.html)
+- [vite.config.js](/vue/viewer/vite.config.js)
 
 **Designer:**
 
-- [index.html](/vue/vite/designer/index.html)
-- [vite.config.js](/vue/vite/designer/vite.config.js)
-
-### Vue CLI
-
-The *vue-cli* folder contains Vue applications created with [Vue CLI](https://cli.vuejs.org/).
-
-The following meta tag shows the minimum required CSP for our reporting controls:  
-
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-img-src data: https: http:;
-script-src 'self';
-style-src 'self' 'unsafe-inline';
-connect-src 'self' http://localhost:5000 ws:;
-worker-src 'self' blob:;
-frame-src 'self' blob:;" />
-```
-
-#### Run the Project
-
-Run the server application. To do this, run the following command from the *ServerApp* folder:
-
-```cmd
-dotnet run
-```
-
-To run the client application, run the following commands:
-
-```cmd
-npm install
-npm run serve
-```
-
-#### Files to Review
-
-**Viewer:**
-
-- [index.html](/vue/vue-cli/viewer/public/index.html)
-- [vue.config.js](/vue/vue-cli/viewer/vue.config.js)
-
-**Designer:**
-
-- [index.html](/vue/vue-cli/viewer/public/index.html)
-- [vue.config.js](/vue/vue-cli/viewer/vue.config.js)
+- [index.html](/vue/designer/index.html)
+- [vite.config.js](/vue/designer/vite.config.js)
 
 ### Documentation
 
