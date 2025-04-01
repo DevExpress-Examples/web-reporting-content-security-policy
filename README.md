@@ -11,7 +11,10 @@ This repository contains sample Angular, React and Vue projects with integrated 
 The Report Designer and Native Report Viewer are integrated to an Angular project created with [Angular CLI](https://angular.dev/tools/cli).
 For more information on CSP in Angular framework, refer to the following documentation article: [Content Security Policy](https://angular.dev/best-practices/security#content-security-policy).
 
-The following meta tag shows the minimum required CSP for our reporting controls:  
+The following meta tag shows the minimum required CSP for our reporting controls: 
+
+> [!IMPORTANT]
+> We are using the placeholder random-nonce-value to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ```html
   <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -23,8 +26,6 @@ The following meta tag shows the minimum required CSP for our reporting controls
   frame-src 'self' blob:;" />
 ```
 
-> [!IMPORTANT]
-> We are using the placeholder random-nonce-value to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ### Run the Project
 
@@ -65,7 +66,10 @@ npm start
 The Report Designer and Native Report Viewer are integrated to a React project created with [Vite](https://vite.dev/guide/).
 For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
-The following meta tag shows the minimum required CSP for our reporting controls:  
+The following meta tag shows the minimum required CSP for our reporting controls: 
+
+> [!IMPORTANT]
+> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -76,9 +80,6 @@ connect-src 'self' http://localhost:5000;
 worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
-
-> [!IMPORTANT]
-> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ### Run the Project
 
@@ -107,12 +108,19 @@ npm run dev
 - [index.html](/react/designer/index.html)
 - [vite.config.ts](/react/designer/vite.config.ts)
 
+### Documentation
+
+- [Content Security Policy in React Apps](https://docs.devexpress.com/XtraReports/404557/web-reporting/react-reporting/content-security-policy)
+
 ## Vue
 
 The Wen Document Viewer and Report Designer are integrated to a Vue project created with [Vite](https://vite.dev/guide/).
 For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
-The following meta tag shows the minimum required CSP for our reporting controls:  
+The following meta tag shows the minimum required CSP for our reporting controls: 
+
+> [!IMPORTANT]
+> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -123,9 +131,6 @@ connect-src 'self' http://localhost:5000;
 worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
-
-> [!IMPORTANT]
-> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ### Run the Project
 
