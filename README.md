@@ -4,17 +4,18 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy
-This repository contains sample Angular, React and Vue projects with integrated Web Document Viewer and Web Report Designer components. 
+
+This repository contains sample Angular, React and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
 
 ## Angular 
 
-The Report Designer and Native Report Viewer are integrated to an Angular project created with [Angular CLI](https://angular.dev/tools/cli).
+The Report Designer and Native Report Viewer are integrated into an Angular project created with [Angular CLI](https://angular.dev/tools/cli).
 For more information on CSP in Angular framework, refer to the following documentation article: [Content Security Policy](https://angular.dev/best-practices/security#content-security-policy).
 
-The following meta tag shows the minimum required CSP for our reporting controls: 
+The following `meta` tag shows the CSP required for our reporting controls: 
 
 > [!IMPORTANT]
-> We are using the placeholder random-nonce-value to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
+> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
 
 ```html
   <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -60,13 +61,12 @@ npm start
 
 - [Content Security Policy in Angular Apps](https://docs.devexpress.com/XtraReports/404552/web-reporting/angular-reporting/content-security-policy)
 
-
 ## React
 
-The Report Designer and Native Report Viewer are integrated to a React project created with [Vite](https://vite.dev/guide/).
-For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
+The Report Designer and Native Report Viewer are integrated into a React project created with [Vite](https://vite.dev/guide/).
+For more information on CSP in Vite-based applications, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
-The following meta tag shows the minimum required CSP for our reporting controls: 
+The following `meta` tag shows the minimum required CSP for our reporting controls: 
 
 > [!IMPORTANT]
 > We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
@@ -114,10 +114,10 @@ npm run dev
 
 ## Vue
 
-The Wen Document Viewer and Report Designer are integrated to a Vue project created with [Vite](https://vite.dev/guide/).
+The Wen Document Viewer and Report Designer are integrated into a Vue project created with [Vite](https://vite.dev/guide/).
 For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
 
-The following meta tag shows the minimum required CSP for our reporting controls: 
+The following `meta` tag shows the minimum required CSP for our reporting controls: 
 
 > [!IMPORTANT]
 > We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
