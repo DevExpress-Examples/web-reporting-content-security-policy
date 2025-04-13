@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy
 
-This repository contains sample Angular, React and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
 
 ## Angular 
 
