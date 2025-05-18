@@ -69,5 +69,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
+app.MapGet("/", (IServiceProvider services) =>
+{
+    var addressesFeature = services.GetRequiredService<Microsoft.AspNetCore.Hosting.Server.IServer>().Features
+        .Get<Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>();
+    var addresses = addressesFeature?.Addresses?.ToArray() ?? Array.Empty<string>();
+    string message = "This backend with MVC reporting controllers is listening on: <br/>" + string.Join("<br/>", addresses);
+
+    return Results.Content($"<html><body><h2>{message}</h2></body></html>", "text/html");
+});
 
 app.Run();

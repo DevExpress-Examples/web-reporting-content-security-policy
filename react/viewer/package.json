@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "vite build && vite preview"
   },
   "dependencies": {
     "devexpress-reporting-react": "24.2-stable",

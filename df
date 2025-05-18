@@ -1,0 +1,54 @@
+[1mdiff --git a/ServerApp/Program.cs b/ServerApp/Program.cs[m
+[1mindex cf82916..bd313b1 100644[m
+[1m--- a/ServerApp/Program.cs[m
+[1m+++ b/ServerApp/Program.cs[m
+[36m@@ -69,5 +69,14 @@[m [mapp.MapControllerRoute([m
+     name: "default",[m
+     pattern: "{controller}/{action=Index}/{id?}");[m
+ [m
+[32m+[m[32mapp.MapGet("/", (IServiceProvider services) =>[m
+[32m+[m[32m{[m
+[32m+[m[32m    var addressesFeature = services.GetRequiredService<Microsoft.AspNetCore.Hosting.Server.IServer>().Features[m
+[32m+[m[32m        .Get<Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>();[m
+[32m+[m[32m    var addresses = addressesFeature?.Addresses?.ToArray() ?? Array.Empty<string>();[m
+[32m+[m[32m    string message = "This backend with MVC reporting controllers is listening on: <br/>" + string.Join("<br/>", addresses);[m
+[32m+[m
+[32m+[m[32m    return Results.Content($"<html><body><h2>{message}</h2></body></html>", "text/html");[m
+[32m+[m[32m});[m
+ [m
+ app.Run();[m
+\ No newline at end of file[m
+[1mdiff --git a/angular/viewer/package.json b/angular/viewer/package.json[m
+[1mindex c832d67..d02ef04 100644[m
+[1m--- a/angular/viewer/package.json[m
+[1m+++ b/angular/viewer/package.json[m
+[36m@@ -3,7 +3,7 @@[m
+   "version": "0.0.0",[m
+   "scripts": {[m
+     "ng": "ng",[m
+[31m-    "start": "ng serve",[m
+[32m+[m[32m    "start": "ng serve --configuration=production",[m
+     "build": "ng build",[m
+     "watch": "ng build --watch --configuration development",[m
+     "test": "ng test"[m
+[1mdiff --git a/angular/viewer/src/index.html b/angular/viewer/src/index.html[m
+[1mindex c234212..237bbd7 100644[m
+[1m--- a/angular/viewer/src/index.html[m
+[1m+++ b/angular/viewer/src/index.html[m
+[36m@@ -7,7 +7,7 @@[m
+   <meta name="viewport" content="width=device-width, initial-scale=1">[m
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self';[m
+   img-src data: https: http:;[m
+[31m-  script-src 'self';[m
+[32m+[m[32m  script-src 'self' 'nonce-random_nonce_value';[m
+   style-src 'self' 'nonce-random_nonce_value';[m
+   connect-src 'self' http://localhost:5000;[m
+   worker-src 'self' blob:;[m
+[36m@@ -15,6 +15,6 @@[m
+   <link rel="icon" type="image/x-icon" href="favicon.ico">[m
+ </head>[m
+ <body>[m
+[31m-    <app-root></app-root>[m
+[32m+[m[32m    <app-root ngCspNonce="random_nonce_value"></app-root>[m
+ </body>[m
+ </html>[m

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self';
   img-src data: https: http:;
-  script-src 'self';
+  script-src 'self' 'nonce-random_nonce_value';
   style-src 'self' 'nonce-random_nonce_value';
   connect-src 'self' http://localhost:5000;
   worker-src 'self' blob:;
@@ -15,6 +15,6 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root ngCspNonce="random_nonce_value"></app-root>
 </body>
 </html>

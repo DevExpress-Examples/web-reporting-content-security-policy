@@ -5,8 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   html: {
-    // For demonstration purposes only.
-    // Generate a random number, unique for each HTTP request.
-    cspNonce: 'random_nonce_value'
   }
 })
