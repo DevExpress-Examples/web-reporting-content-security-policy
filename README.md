@@ -13,6 +13,8 @@ The following three main rules are enforced at the internal design level:
 2) **No raw injection of inline scripts or styles** — inline <script>/<style> elements and direct use of `setAttribute('style', ...)` are avoided.
 3) **No reliance on external or CDN-hosted resources** — all assets are loaded from the local origin.
 
+To learn more about what exact CSP directives and sources are required, see [Content Security Policy](https://docs.devexpress.com/GeneralInformation/404541/security/content-security-policy#reporting)
+
 Important points:
 
 * Since the entire document generation process occurs on the server, `connect-src` must include your back-end URL.
@@ -20,8 +22,6 @@ Important points:
 * DevExtreme Material themes have links to fonts hosted on Google services (https://fonts.googleapis.com). You should either add those URLs to the policy, or you can replace these links and fallbacks to download local Google font files by using our Theme Builder. Set the "Remove external resources" check mark while exporting a theme for this. Please refer to the following document for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
 * Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to automatically reload your app on any source code change.
 * The final application's CSP compatibility will depend on your framework configuration and build tooling. In case of any issues, check your browser’s CSP violation report (usually visible in   DevTools) to identify what triggered the error and adjust your policy or build settings accordingly.
-
-To learn more about what exact CSP directives and sources are required, see [Content Security Policy](https://docs.devexpress.com/GeneralInformation/404541/security/content-security-policy#reporting)
 
 > [!IMPORTANT]
 > This proof-of-concept demo does not illustrate best CSP practices. For simplicity, the nonce value is hardcoded and CSP directives are set via the <meta> tag, not the HTTP response header.
