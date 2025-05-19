@@ -7,26 +7,25 @@
 
 This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
 
-## Angular 
+The following three main rules are enforced at the internal design level:
 
-The Report Designer and Native Report Viewer are integrated into an Angular project created with [Angular CLI](https://angular.dev/tools/cli).
-For more information on CSP in Angular framework, refer to the following documentation article: [Content Security Policy](https://angular.dev/best-practices/security#content-security-policy).
+1) **No dynamic code evaluation** — constructs such as `eval`, `new Function`, or string-based `setTimeout` / `setInterval` are not used.
+2) **No raw injection of inline scripts or styles** — inline <script>/<style> elements and direct use of `setAttribute('style', ...)` are avoided.
+3) **No reliance on external or CDN-hosted resources** — all assets are loaded from the local origin.
 
-The following `meta` tag shows the CSP required for our reporting controls: 
+Important points:
+
+* Since the entire document generation process occurs on the server, `connect-src` must include your back-end URL.
+* Because Web Report Designer is built on top of `Knockout.js` whose origin predates CSP, a special hack (`knockout_global.js`) is required to avoid dynamic code execution.
+* DevExtreme Material themes have links to fonts hosted on Google services (https://fonts.googleapis.com). You should either add those URLs to the policy, or you can replace these links and fallbacks to download local Google font files by using our Theme Builder. Set the "Remove external resources" check mark while exporting a theme for this. Please refer to the following document for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
+* Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to automatically reload your app on any source code change.
+* The final application's CSP compatibility will depend on your framework configuration and build tooling. In case of any issues, check your browser’s CSP violation report (usually visible in   DevTools) to identify what triggered the error and adjust your policy or build settings accordingly.
+
+To learn more about what exact CSP directives and sources are required, see [Content Security Policy](https://docs.devexpress.com/GeneralInformation/404541/security/content-security-policy#reporting)
 
 > [!IMPORTANT]
-> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
-
-```html
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-  img-src data: https: http:;
-  script-src 'self';
-  style-src 'self' 'nonce-random_nonce_value';
-  connect-src 'self' http://localhost:5000;
-  worker-src 'self' blob:;
-  frame-src 'self' blob:;" />
-```
-
+> This proof-of-concept demo does not illustrate best CSP practices. For simplicity, the nonce value is hardcoded and CSP directives are set via the <meta> tag, not the HTTP response header.
+>
 
 ### Run the Project
 
@@ -36,132 +35,13 @@ Run the server application. To do this, run the following command from the *Serv
 dotnet run
 ```
 
-To run the client application, run the following commands:
+To run a SPA application, run the following commands:
 
 ```cmd
 npm install
 npm start
 ```
 
-### Files to Review
-
-**Viewer:**
-
-- [index.html](/angular/viewer/src/index.html)
-- [app.config.ts](/angular/viewer/src/app/app.config.ts)
-- [angular.json](/angular/viewer/angular.json)
-
-**Designer:**
-
-- [index.html](/angular/designer/src/index.html)
-- [app.config.ts](/angular/designer/src/app/app.config.ts)
-- [angular.json](/angular/designer/angular.json)
-
-### Documentation
-
-- [Content Security Policy in Angular Apps](https://docs.devexpress.com/XtraReports/404552/web-reporting/angular-reporting/content-security-policy)
-
-## React
-
-The Report Designer and Native Report Viewer are integrated into a React project created with [Vite](https://vite.dev/guide/).
-For more information on CSP in Vite-based applications, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
-
-The following `meta` tag shows the minimum required CSP for our reporting controls: 
-
-> [!IMPORTANT]
-> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
-
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-img-src data: https: http:;
-script-src 'self';
-style-src 'self' 'nonce-random_nonce_value';
-connect-src 'self' http://localhost:5000;
-worker-src 'self' blob:;
-frame-src 'self' blob:;" />
-```
-
-### Run the Project
-
-Run the server application. To do this, run the following command from the *ServerApp* folder:
-
-```cmd
-dotnet run
-```
-
-To run the client application, run the following commands:
-
-```cmd
-npm install
-npm run dev
-```
-
-### Files to Review
-
-**Viewer:**
-
-- [index.html](/react/viewer/index.html)
-- [vite.config.ts](/react/viewer/vite.config.ts)
-
-**Designer:**
-
-- [index.html](/react/designer/index.html)
-- [vite.config.ts](/react/designer/vite.config.ts)
-
-### Documentation
-
-- [Content Security Policy in React Apps](https://docs.devexpress.com/XtraReports/404557/web-reporting/react-reporting/content-security-policy)
-
-## Vue
-
-The Wen Document Viewer and Report Designer are integrated into a Vue project created with [Vite](https://vite.dev/guide/).
-For more information on CSP in Vite-based apps, refer to the following article: [Content Security Policy (CSP)](https://vite.dev/guide/features#content-security-policy-csp). 
-
-The following `meta` tag shows the minimum required CSP for our reporting controls: 
-
-> [!IMPORTANT]
-> We are using the placeholder `random-nonce-value` to denote the nonce in sample projects. You need to generate a random number, unique for each HTTP request.
-
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-img-src data: https: http:;
-script-src 'self';
-style-src 'self' 'nonce-random_nonce_value';
-connect-src 'self' http://localhost:5000;
-worker-src 'self' blob:;
-frame-src 'self' blob:;" />
-```
-
-### Run the Project
-
-Run the server application. To do this, run the following command from the *ServerApp* folder:
-
-```cmd
-dotnet run
-```
-
-To run the client application, run the following commands:
-
-```cmd
-npm install
-npm run dev
-```
-
-### Files to Review
-
-**Viewer:**
-
-- [index.html](/vue/viewer/index.html)
-- [vite.config.js](/vue/viewer/vite.config.js)
-
-**Designer:**
-
-- [index.html](/vue/designer/index.html)
-- [vite.config.js](/vue/designer/vite.config.js)
-
-### Documentation
-
-- [Content Security Policy in Vue Apps](https://docs.devexpress.com/XtraReports/404558/web-reporting/vue-reporting/content-security-policy)
 
 ## More Examples
 
