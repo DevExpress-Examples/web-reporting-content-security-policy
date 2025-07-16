@@ -5,13 +5,15 @@
   <title>Viewer</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-  img-src data: https: http:;
-  script-src 'self' 'nonce-random_nonce_value';
-  style-src 'self' 'nonce-random_nonce_value';
-  connect-src 'self' http://localhost:5000;
-  worker-src 'self' blob:;
-  frame-src 'self' blob:;" />
+  <!--see this bug report regarding unsafe hashes: https://issues.chromium.org/issues/40328564 -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src data: https: http:;
+    script-src 'self' 'nonce-random_nonce_value';
+    style-src 'self' 'nonce-random_nonce_value' 'unsafe-hashes' 'sha256-C7vpsE1KLI7RuUgCprJTQZin6dWK+ccynbOx+OqjVow=' 'sha256-tbWZ4NP1341cpcrZVDn7B3o9bt/muXgduILAnC0Zbaw=' 'sha256-YBgjA+VjFtAXSIPo7m2n1vE7Z2+4KoNTMJRNxrNV1iE=' 'sha256-7lS3+Icm3ErlJBiU5BizsjDs7Rk2EBEQX03oy5CH2Hg=';
+    connect-src 'self' http://localhost:5000;
+    worker-src 'self' blob:;
+    frame-src 'self' blob:;" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
