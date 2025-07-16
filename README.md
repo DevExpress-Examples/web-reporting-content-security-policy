@@ -3,29 +3,38 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Reporting for Web - Content Security Policy in SPAs
+# Reporting for Web - Content Security Policy in Single-page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
 
-The following three main rules are enforced at the internal design level:
+The following code snippet shows the minimum required CSP for Reporting Components:
 
-1) **No dynamic code evaluation** — constructs such as `eval`, `new Function`, or string-based `setTimeout` / `setInterval` are not used.
-2) **No raw injection of inline scripts or styles** — inline <script>/<style> elements and direct use of `setAttribute('style', ...)` are avoided.
-3) **No reliance on external or CDN-hosted resources** — all assets are loaded from the local origin.
+```
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+img-src data: https: http:;
+script-src 'self';
+style-src 'self' 'unsafe-hashes' 'sha256-7lS3+Icm3ErlJBiU5BizsjDs7Rk2EBEQX03oy5CH2Hg=' 'sha256-tbWZ4NP1341cpcrZVDn7B3o9bt/muXgduILAnC0Zbaw=';
+connect-src 'self' http://localhost:5000;
+worker-src 'self' blob:;
+frame-src 'self' blob:;" />
+```
 
-To learn more about what exact CSP directives and sources are required, see [Content Security Policy](https://docs.devexpress.com/GeneralInformation/404541/security/content-security-policy#reporting)
-
-Important points:
-
-* Since the entire document generation process occurs on the server, `connect-src` must include your back-end URL.
-* Because Web Report Designer is built on top of `Knockout.js` whose origin predates CSP, a special hack (`knockout_global.js`) is required to avoid dynamic code execution.
-* DevExtreme Material themes have links to fonts hosted on Google services (https://fonts.googleapis.com). You should either add those URLs to the policy, or you can replace these links and fallbacks to download local Google font files by using our Theme Builder. Set the "Remove external resources" check mark while exporting a theme for this. Please refer to the following document for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
-* Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to automatically reload your app on any source code change.
-* The final application's CSP compatibility will depend on your framework configuration and build tooling. In case of any issues, check your browser’s CSP violation report (usually visible in   DevTools) to identify what triggered the error and adjust your policy or build settings accordingly.
+The hashes are required for print operations in Web Document Viewer and Web Report Designer Preview.
 
 > [!IMPORTANT]
-> This proof-of-concept demo does not illustrate best CSP practices. For simplicity, the nonce value is hardcoded and CSP directives are set via the <meta> tag, not the HTTP response header.
->
+> In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
+
+When integrating CSP in your application with DevExpress Reporting Components, take the following into consideration:
+
+- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source the error and adjust your policy or build settings accordingly.
+-  Web Report Designer is built on top of the Knockout.js library. The use of this library requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, a workaround with the `knockout_global.js` file is used to avoid dynamic code execution.
+- DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
+    - Include font URLs in the Content Security Policy.
+    - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder. 
+    
+    Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
+    s
+* Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app on any source code change automatically.
 
 ### Run the Project
 
@@ -35,13 +44,55 @@ Run the server application. To do this, run the following command from the *Serv
 dotnet run
 ```
 
-To run a SPA application, run the following commands:
+To run a client application, run the following commands from the folder with the required component (for example, *angular/viewer* or *vue/designer*):
 
 ```cmd
 npm install
 npm start
 ```
 
+## Files to Review
+
+### Angular
+
+**Viewer:**
+
+- [index.html](/angular/viewer/src/index.html)
+- [app.config.ts](/angular/viewer/src/app/app.config.ts)
+- [angular.json](/angular/viewer/angular.json)
+
+**Designer:**
+
+- [index.html](/angular/designer/src/index.html)
+- [app.config.ts](/angular/designer/src/app/app.config.ts)
+- [angular.json](/angular/designer/angular.json)
+
+### React 
+
+**Viewer:**
+
+- [index.html](/react/viewer/index.html)
+
+**Designer:**
+
+- [index.html](/react/designer/index.html)
+
+### Vue
+
+**Viewer:**
+
+- [index.html](/vue/viewer/index.html)
+
+**Designer:**
+
+- [index.html](/vue/designer/index.html)
+
+## Documentation
+
+- [Content Security Policy for DevExpress Reports (Angular)](https://docs.devexpress.com/XtraReports/404552/web-reporting/angular-reporting/content-security-policy)
+- [Content Security Policy for DevExpress Reports (React)](https://docs.devexpress.com/XtraReports/404557/web-reporting/react-reporting/content-security-policy)
+- [Content Security Policy for DevExpress Reports (Vue)](https://docs.devexpress.com/XtraReports/404558/web-reporting/vue-reporting/content-security-policy)
+- [How to Use DevExpress Controls with Content Security Policy (CSP)](https://docs.devexpress.com/GeneralInformation/404541/security/content-security-policy)
 
 ## More Examples
 

@@ -14,10 +14,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
       },
-  },
-  html: {
-    // For demonstration purposes only.
-    // Generate a random number, unique for each HTTP request.
-    cspNonce: 'random_nonce_value'
   }
 })
