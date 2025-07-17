@@ -5,7 +5,9 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
+
+A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
 The following code snippet shows the minimum required CSP for Reporting Components:
 
