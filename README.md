@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
 The following code snippet shows the minimum required CSP for Reporting Components:
 
@@ -24,6 +24,9 @@ Print operations in Web Document Viewer and Web Report Designer Preview may requ
 > [!IMPORTANT]
 > In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
 
+
+## General Recommendations 
+
 When integrating CSP in your application with DevExpress Reporting Components, take the following into consideration:
 
 - The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source the error and adjust your policy or build settings accordingly.
@@ -33,10 +36,9 @@ When integrating CSP in your application with DevExpress Reporting Components, t
     - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder. 
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
-    s
 * Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app on any source code change automatically.
 
-### Run the Project
+## Run the Project
 
 Run the server application. To do this, run the following command from the *ServerApp* folder:
 
