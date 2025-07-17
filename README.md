@@ -9,17 +9,17 @@ This repository contains sample Angular, React, and Vue projects with enabled Co
 
 The following code snippet shows the minimum required CSP for Reporting Components:
 
-```
+```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
 img-src data: https: http:;
 script-src 'self';
-style-src 'self' 'unsafe-hashes' 'sha256-7lS3+Icm3ErlJBiU5BizsjDs7Rk2EBEQX03oy5CH2Hg=' 'sha256-tbWZ4NP1341cpcrZVDn7B3o9bt/muXgduILAnC0Zbaw=';
+style-src 'self';
 connect-src 'self' http://localhost:5000;
 worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
 
-The hashes are required for print operations in Web Document Viewer and Web Report Designer Preview.
+Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium issue for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
 
 > [!IMPORTANT]
 > In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
@@ -27,12 +27,12 @@ The hashes are required for print operations in Web Document Viewer and Web Repo
 When integrating CSP in your application with DevExpress Reporting Components, take the following into consideration:
 
 - The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source the error and adjust your policy or build settings accordingly.
--  Web Report Designer is built on top of the Knockout.js library. The use of this library requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, a workaround with the `knockout_global.js` file is used to avoid dynamic code execution.
+-  Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with *knockout_global.js* file is used to avoid unsafe code execution.
 - DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
     - Include font URLs in the Content Security Policy.
     - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder. 
     
-    Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
+        Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
     s
 * Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app on any source code change automatically.
 
