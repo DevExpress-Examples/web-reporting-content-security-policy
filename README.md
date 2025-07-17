@@ -3,11 +3,11 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Reporting for Web - Content Security Policy in Single-page Applications (Angular, React, Vue)
+# Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. 
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
 
-A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
+A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
 The following code snippet shows the minimum required CSP for Reporting Components:
 
@@ -26,19 +26,18 @@ Print operations in Web Document Viewer and Web Report Designer Preview may requ
 > [!IMPORTANT]
 > In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
 
-
-## General Recommendations 
+## General Recommendations
 
 When integrating CSP in your application with DevExpress Reporting Components, take the following into consideration:
 
-- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source the error and adjust your policy or build settings accordingly.
--  Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with *knockout_global.js* file is used to avoid unsafe code execution.
+- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source of the error and adjust your policy or build settings accordingly.
+- Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with the *knockout_global.js* file is used to avoid unsafe code execution.
 - DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
     - Include font URLs in the Content Security Policy.
-    - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder. 
+    - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
-* Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app on any source code change automatically.
+* Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app automatically on any source code change.
 
 ## Run the Project
 
@@ -71,7 +70,7 @@ npm start
 - [app.config.ts](/angular/designer/src/app/app.config.ts)
 - [angular.json](/angular/designer/angular.json)
 
-### React 
+### React
 
 **Viewer:**
 
