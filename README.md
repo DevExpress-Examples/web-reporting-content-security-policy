@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-This repository contains ready-to-use sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
 
 A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
@@ -21,7 +21,7 @@ worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
 
-Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium issue for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
+Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium bug report for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
 
 > [!IMPORTANT]
 > In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
