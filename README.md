@@ -6,7 +6,7 @@
 # Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. Use this 
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
 
 >[!Important]
 >Code in this example is not production-ready code. Use these projects as a testing playground, intended for experimenting with various CSP settings.
