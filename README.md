@@ -5,11 +5,10 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-
 This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
 
 >[!Important]
->Code in this example is not production-ready code. Use these projects as a testing playground, intended for experimenting with various CSP settings.
+>Code in this example is not production-ready. Use these projects as a testing playground intended for experimenting with various CSP settings.
 
 A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
@@ -28,8 +27,8 @@ frame-src 'self' blob:;" />
 Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium bug report for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
 
 > [!IMPORTANT]
-> In this example, we are using the placeholder `nonce-randomNonceGoesHere` to denote the nonce. You need to generate a a cryptographically strong random value, unique for each HTTP request. 
-> For more information refer, to the following article: [HTML nonce global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/nonce).
+> In this example, we are using the placeholder `nonce-randomNonceGoesHere` to denote the nonce. You need to generate a cryptographically strong random value, unique for each HTTP request. 
+> For more information, refer to the following article: [HTML nonce global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/nonce).
 
 ## General Recommendations
 
@@ -39,11 +38,10 @@ When integrating CSP in your application with DevExpress Reporting Components, c
 - Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with the *knockout_global.js* file is used to avoid unsafe code execution.
 - DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
     - Include font URLs in the Content Security Policy.
-    - Replace the links and fallbacks to local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
+    - Replace the links and fallbacks with local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
 - Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app automatically on any source code change.
-- 
 
 ## Run the Project
 
