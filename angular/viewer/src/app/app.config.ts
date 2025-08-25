@@ -4,7 +4,7 @@ import { routes } from './app.routes';
 
 // For demonstration purposes only.
 // Generate a random number, unique for each HTTP request.
-const HARDCODED_NONCE = 'random_nonce_value';
+const HARDCODED_NONCE = 'randomNonceGoesHere';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -5,7 +5,11 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
+
+This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components. Use this 
+
+>[!Important]
+>Code in this example is not production-ready code. Use these projects as a testing playground, intended for experimenting with various CSP settings.
 
 A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
 
@@ -13,7 +17,7 @@ The following code snippet shows the minimum required CSP for Reporting Componen
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-img-src data: https: http:;
+img-src 'self' data:;
 script-src 'self';
 style-src 'self';
 connect-src 'self' http://localhost:5000;
@@ -24,7 +28,8 @@ frame-src 'self' blob:;" />
 Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium bug report for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
 
 > [!IMPORTANT]
-> In this example, we are using the placeholder `random-nonce-value` to denote the nonce. You need to generate a random number, unique for each HTTP request.
+> In this example, we are using the placeholder `nonce-randomNonceGoesHere` to denote the nonce. You need to generate a a cryptographically strong random value, unique for each HTTP request. 
+> For more information refer, to the following article: [HTML nonce global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/nonce).
 
 ## General Recommendations
 
@@ -38,6 +43,7 @@ When integrating CSP in your application with DevExpress Reporting Components, c
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
 - Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app automatically on any source code change.
+- 
 
 ## Run the Project
 
@@ -58,13 +64,13 @@ npm start
 
 ### Angular
 
-**Viewer:**
+**Native Angular Viewer:**
 
 - [index.html](/angular/viewer/src/index.html)
 - [app.config.ts](/angular/viewer/src/app/app.config.ts)
 - [angular.json](/angular/viewer/angular.json)
 
-**Designer:**
+**Report Designer:**
 
 - [index.html](/angular/designer/src/index.html)
 - [app.config.ts](/angular/designer/src/app/app.config.ts)
@@ -72,21 +78,17 @@ npm start
 
 ### React
 
-**Viewer:**
+**Native React Viewer:**
 
 - [index.html](/react/viewer/index.html)
 
-**Designer:**
+**Report Designer:**
 
 - [index.html](/react/designer/index.html)
 
 ### Vue
 
-**Viewer:**
-
-- [index.html](/vue/viewer/index.html)
-
-**Designer:**
+**Report Designer:**
 
 - [index.html](/vue/designer/index.html)
 
