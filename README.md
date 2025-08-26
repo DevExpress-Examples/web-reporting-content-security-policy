@@ -5,12 +5,13 @@
 <!-- default badges end -->
 # Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-This repository contains sample Angular, React, and Vue projects with enabled Content Security Policy for DevExpress Reporting Components.
+This repository contains sample projects that activate Content Security Policy for DevExpress Reporting Components. Project for the following platforms are included: Angular, React, and Vue.
+
 
 >[!Important]
->Code in this example is not production-ready. Use these projects as a testing playground intended for experimenting with various CSP settings.
+>Code in this example is not production-ready. Each project serves as a playground where you can experiment with various CSP settings.
 
-A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks include, but are not limited to, data theft, page spoofing, and malware distribution.
+A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks may aim to steal data, distribute malware, and direct users to spoof pages/sites.
 
 The following code snippet shows the minimum required CSP for Reporting Components:
 
@@ -34,24 +35,27 @@ Print operations in Web Document Viewer and Web Report Designer Preview may requ
 
 When integrating CSP in your application with DevExpress Reporting Components, consider the following:
 
-- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the source of the error and adjust your policy or build settings accordingly.
+- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the error source. This information may help you adjust your policy or build settings.
 - Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with the *knockout_global.js* file is used to avoid unsafe code execution.
 - DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
     - Include font URLs in the Content Security Policy.
-    - Replace the links and fallbacks with local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
+    - Replace links and fallbacks with local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
+
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
 - Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app automatically on any source code change.
 
 ## Run the Project
 
-Run the server application. To do this, run the following command from the *ServerApp* folder:
+Run the server application. To do this, execute the following command from the *ServerApp* folder:
+
 
 ```cmd
 dotnet run
 ```
 
-To run a client application, run the following commands from the folder with the required component (for example, *angular/viewer* or *vue/designer*):
+To run a client application, execute the following commands from the folder with the required component (for example, *angular/viewer* or *vue/designer*):
+
 
 ```cmd
 npm install
