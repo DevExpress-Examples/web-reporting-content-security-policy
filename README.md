@@ -38,7 +38,7 @@ When integrating CSP in your application with DevExpress Reporting Components, c
 
 - The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the error source. This information may help you adjust your policy or build settings.
 - Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with the *knockout_global.js* file is used to avoid unsafe code execution.
-- DevExtreme Material themes contain links to fonts hosted on Google services (https://fonts.googleapis.com). Do one of the following: 
+- DevExtreme Material themes contain links to fonts hosted on Google services (`https://fonts.googleapis.com`). Do one of the following: 
     - Include font URLs in the Content Security Policy.
     - Replace links and fallbacks with local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
 
@@ -113,3 +113,4 @@ npm start
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
