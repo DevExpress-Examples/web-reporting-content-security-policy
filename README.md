@@ -4,17 +4,16 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Reporting for Web - Content Security Policy in Single-Page Applications (Angular, React, Vue)
+# Web Reporting - Content Security Policy in Single-Page Applications (Angular, React, Vue)
 
-This repository contains sample projects that activate Content Security Policy for DevExpress Reporting Components. Project for the following platforms are included: Angular, React, and Vue.
-
+This repository contains sample projects that activate Content Security Policy for DevExpress Reports. Projects for the following platforms are included: Angular, React, and Vue.
 
 >[!Important]
->Code in this example is not production-ready. Each project serves as a playground where you can experiment with various CSP settings.
+>Code in this example is not production-ready. Each project serves as a playground where you can experiment with various CSP settings
 
-A [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks may aim to steal data, distribute malware, and direct users to spoof pages/sites.
+[Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks may aim to steal data, distribute malware, and direct users to spoof pages/sites.
 
-The following code snippet shows the minimum required CSP for Reporting Components:
+The following code snippet illustrates the minimum required CSP for DevExpress Reports:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -26,24 +25,24 @@ worker-src 'self' blob:;
 frame-src 'self' blob:;" />
 ```
 
-Print operations in Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium bug report for more information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
+Print operations within the DevExpress Web Document Viewer and Web Report Designer Preview may require additional hashes. Refer to the following Chromium bug report for additional information: [Chromium -- Chrome does not display PDF content if Content Security Policy (CSP) is in effect](https://issues.chromium.org/issues/40328564).
 
 > [!IMPORTANT]
-> In this example, we are using the placeholder `nonce-randomNonceGoesHere` to denote the nonce. You need to generate a cryptographically strong random value, unique for each HTTP request. 
-> For more information, refer to the following article: [HTML nonce global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/nonce).
+> In this example, we are using the placeholder `nonce-randomNonceGoesHere` to denote the nonce. You need to generate a cryptographically strong random value, unique for each HTTP request.
+> For additional information, refer to the following article: [HTML nonce global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/nonce).
 
 ## General Recommendations
 
-When integrating CSP in your application with DevExpress Reporting Components, consider the following:
+When integrating CSP in your application with DevExpress Reports, consider the following:
 
-- The application's CSP depends on the framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify the error source. This information may help you adjust your policy or build settings.
-- Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires the `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, the workaround with the *knockout_global.js* file is used to avoid unsafe code execution.
+- The application's CSP depends on framework configuration and build tooling. If issues arise, check your browser’s CSP violation report (usually visible in DevTools) to identify error source. This information will help you modify your policy or build settings.
+- Web Report Designer uses the Knockout.js library. This library relies on dynamic code execution and requires an `unsafe-eval` source expression in the `script-src` directive. To overcome this limitation, a workaround with the _knockout_global.js_ file is used to avoid unsafe code execution.
 - DevExtreme Material themes contain links to fonts hosted on Google services (`https://fonts.googleapis.com`). Do one of the following: 
     - Include font URLs in the Content Security Policy.
     - Replace links and fallbacks with local Google font files. To do this, check the "Remove external resources" option when exporting a theme in our Theme Builder.
-
     
         Refer to the following help article for additional information: [Theme Builder - Export the Resulting Theme](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/ThemeBuilder/#Export_the_Resulting_Theme).
+        
 - Running the app in debug mode may require additional permissions compared to a published application. For example, during a debug session, a WebSocket connection may be established to reload your app automatically on any source code change.
 
 ## Run the Project
@@ -113,4 +112,5 @@ npm start
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
