@@ -9,7 +9,7 @@
 This repository contains sample projects that activate Content Security Policy for DevExpress Reports. Projects for the following platforms are included: Angular, React, and Vue.
 
 >[!Important]
->Code in this example is not production-ready. Each project serves as a playground where you can experiment with various CSP settings
+>Code in this example is not production-ready. Each project serves as a playground where you can experiment with various CSP settings.
 
 [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) is an additional layer of security built into most modern browsers. It allows the browser to recognize and mitigate certain types of risks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks may aim to steal data, distribute malware, and direct users to spoof pages/sites.
 
@@ -112,5 +112,6 @@ npm start
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
 
